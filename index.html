@@ -7,459 +7,482 @@
 
 <style>
 *{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:#050505;color:#fff}
+body{font-family:Arial,Helvetica,sans-serif;overflow:hidden}
 
-html,body{
-margin:0;
-width:100%;
-height:100%;
-background:#050505;
-color:#fff;
-font-family:Arial,Helvetica,sans-serif;
-overflow:hidden;
-}
-
+/* ===== DISPLAY BACKGROUND ===== */
 #display{
-position:relative;
-width:100vw;
-height:100vh;
-overflow:hidden;
-background:
-linear-gradient(45deg,#111 25%,transparent 25%) 0 0/46px 46px,
-linear-gradient(45deg,transparent 75%,#111 75%) 0 0/46px 46px,
-linear-gradient(45deg,transparent 75%,#111 75%) 23px -23px/46px 46px,
-linear-gradient(45deg,#111 25%,#060606 25%,#060606 75%,#111 75%) 23px 23px/46px 46px;
+  width:100vw;
+  height:100vh;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(45deg,#101010 25%,transparent 25%) 0 0/52px 52px,
+    linear-gradient(45deg,transparent 75%,#101010 75%) 0 0/52px 52px,
+    linear-gradient(45deg,transparent 75%,#101010 75%) 26px -26px/52px 52px,
+    linear-gradient(45deg,#101010 25%,#080808 25%,#080808 75%,#101010 75%,#101010) 26px 26px/52px 52px;
 }
 
-/* ===== FOOD ===== */
-
-.food{
-position:absolute;
-top:0;
-bottom:0;
-width:21vw;
-z-index:1;
-background-repeat:no-repeat;
-background-position:center;
-background-size:cover;
+.side-food{
+  position:absolute;
+  top:0;
+  bottom:0;
+  width:18.5vw;
+  min-width:170px;
+  background-repeat:no-repeat;
+  background-size:cover;
+  z-index:1;
 }
 
-.burger{
-left:0;
-background-image:
-linear-gradient(to right,rgba(0,0,0,0) 55%,#050505 100%),
-url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1000&q=90");
+.food-left{
+  left:0;
+  background-image:
+    linear-gradient(to right,rgba(0,0,0,.02) 0%,rgba(0,0,0,.04) 56%,rgba(0,0,0,.86) 100%),
+    url("BURGER_IMAGE");
+  background-position:center center;
 }
 
-.chicken{
-right:0;
-background-image:
-linear-gradient(to left,rgba(0,0,0,0) 55%,#050505 100%),
-url("https://images.unsplash.com/photo-1598103442097-8b74394b95c6?auto=format&fit=crop&w=1000&q=90");
+.food-right{
+  right:0;
+  background-image:
+    linear-gradient(to left,rgba(0,0,0,.02) 0%,rgba(0,0,0,.04) 56%,rgba(0,0,0,.86) 100%),
+    url("CHICKEN_IMAGE");
+  background-position:center center;
 }
 
-/* ===== TOP ===== */
-
-.top{
-position:relative;
-z-index:5;
-height:19vh;
-display:flex;
-align-items:center;
-justify-content:center;
+/* ===== TOP BRAND ===== */
+.topbar{
+  position:relative;
+  z-index:5;
+  height:20vh;
+  min-height:125px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding-top:8px;
 }
 
-.logo{
-text-align:center;
-position:relative;
+.brand{
+  position:relative;
+  text-align:center;
+  min-width:620px;
 }
 
-.logo-title{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:7px;
-font-family:Arial Black,Impact,Arial;
-font-size:4.2vw;
-font-weight:900;
-letter-spacing:-2px;
-line-height:1;
+.brand-main{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:10px;
+  font-family:"Arial Black",Impact,Arial,sans-serif;
+  font-size:58px;
+  font-weight:900;
+  letter-spacing:-2px;
+  line-height:.95;
+  text-shadow:0 4px 8px #000;
+  white-space:nowrap;
 }
 
-.palmo{color:white}
-.chicken-text{color:#ed211a}
+.brand-main .palmo{color:#fff}
+.brand-main .chicken-word{color:#ed261d}
 
-.flame{
-margin-left:5px;
-width:64px;
-height:70px;
-background:#e31d1a;
-clip-path:polygon(
-50% 0,
-64% 21%,
-83% 40%,
-94% 64%,
-80% 87%,
-50% 100%,
-20% 87%,
-6% 64%,
-17% 40%,
-35% 21%
-);
-display:flex;
-align-items:center;
-justify-content:center;
-font-family:Arial Black,Arial;
-font-size:14px;
-font-weight:900;
-transform:rotate(-5deg);
+.brand-logo{
+  width:72px;
+  height:72px;
+  object-fit:contain;
+  margin-left:7px;
+  filter:drop-shadow(0 3px 4px rgba(0,0,0,.7));
 }
 
-.subtitle{
-display:flex;
-align-items:center;
-justify-content:center;
-gap:9px;
-font-size:15px;
-font-weight:bold;
-margin-top:3px;
+.brand-sub-row{
+  margin-top:7px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
 }
 
-.line{
-height:2px;
-width:95px;
-background:#c71c18;
+.brand-line{
+  width:110px;
+  height:2px;
+  background:#c91f18;
+  border-radius:3px;
 }
 
-/* ===== PANELS ===== */
-
-.center{
-position:relative;
-z-index:5;
-width:67vw;
-height:76vh;
-margin:auto;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px;
-}
-
-.panel{
-height:100%;
-background:rgba(6,6,6,.94);
-border:1px solid #c31c17;
-border-radius:7px;
-overflow:hidden;
-display:flex;
-flex-direction:column;
-box-shadow:0 0 5px rgba(255,0,0,.06);
-}
-
-.panel-title{
-height:65px;
-min-height:65px;
-background:linear-gradient(#bc100c,#790805);
-border-bottom:1px solid #bd1813;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:14px;
-font-family:Arial Black,Impact,Arial;
-font-size:26px;
-font-weight:900;
-}
-
-.icon{
-font-size:29px;
-}
-
-/* ===== NUMBERS ===== */
-
-.orders{
-flex:1;
-padding:11px;
-display:grid;
-grid-template-columns:repeat(4,1fr);
-grid-auto-rows:82px;
-gap:9px;
-align-content:start;
-}
-
-.number{
-display:flex;
-align-items:center;
-justify-content:center;
-background:linear-gradient(145deg,#292929,#111);
-border:1px solid #333;
-border-radius:4px;
-font-family:Arial Black,Impact,Arial;
-font-size:30px;
-font-weight:900;
-}
-
-/* NEW READY = GREEN */
-
-.ready .number.new-ready{
-background:linear-gradient(145deg,#20d8ad,#067b65);
-border:1px solid #58ffda;
-box-shadow:
-0 0 9px #37f5d0,
-0 0 18px rgba(55,245,208,.65);
-animation:readyflash .58s ease-in-out 9;
-}
-
-@keyframes readyflash{
-0%,100%{transform:scale(1)}
-50%{transform:scale(1.07);filter:brightness(1.4)}
-}
-
-/* ===== FOOTER ===== */
-
-.footer{
-height:40px;
-min-height:40px;
-display:flex;
-align-items:center;
-justify-content:center;
-gap:8px;
-font-size:11px;
-font-weight:bold;
-white-space:nowrap;
-}
-
-.footer:before,
-.footer:after{
-content:"";
-height:1px;
-width:40px;
-background:#d11b16;
+.brand-sub{
+  font-size:18px;
+  font-weight:700;
+  color:#fff;
 }
 
 /* ===== SOUND ===== */
-
-#soundBtn{
-position:absolute;
-right:15px;
-top:15px;
-z-index:50;
-background:white;
-color:#111;
-border:0;
-border-radius:8px;
-padding:9px 12px;
-font-weight:bold;
+.soundbtn{
+  position:absolute;
+  right:18px;
+  top:18px;
+  z-index:20;
+  background:#fff;
+  color:#111;
+  font-size:15px;
+  font-weight:700;
+  border:0;
+  border-radius:9px;
+  padding:10px 14px;
 }
 
-/* ===== CONTROL ===== */
-
-#control{
-min-height:100vh;
-background:#111;
-padding:20px;
-overflow:auto;
+/* ===== CENTER ===== */
+.screen-center{
+  position:relative;
+  z-index:5;
+  width:68vw;
+  margin:0 auto;
+  height:76vh;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  padding-bottom:16px;
 }
 
-.controls{
-max-width:800px;
-margin:auto;
-}
+/* ===== PANELS ===== */
+.panel{
+  min-width:0;
+  height:100%;
+  background:rgba(8,8,8,.92);
 
-.card{
-background:#1c1c1c;
-padding:18px;
-border-radius:15px;
-margin-bottom:15px;
-}
+  /* الإطار الأحمر الخفيف */
+  border:1px solid #c51b16;
 
-.card h2{margin-top:0}
+  border-radius:9px;
+  display:flex;
+  flex-direction:column;
+  overflow:hidden;
 
-input{
-font-size:27px;
-padding:12px;
-width:65%;
-border:0;
-border-radius:8px;
-}
-
-button{
-font-size:18px;
-padding:12px;
-border:0;
-border-radius:9px;
-margin:4px;
-}
-
-.add{
-background:white;
-color:#111;
-}
-
-.readybtn{
-background:#168a58;
-color:white;
-}
-
-.done{
-background:#555;
-color:white;
-}
-
-.row{
-background:#252525;
-padding:12px;
-margin:8px 0;
-border-radius:9px;
-}
-
-/* ===== TV ===== */
-
-@media(max-width:1200px){
-
-.center{
-width:68vw;
+  /* وهج أحمر خفيف جداً */
+  box-shadow:0 0 6px rgba(255,0,0,.06);
 }
 
 .panel-title{
-font-size:21px;
-height:57px;
-min-height:57px;
+  height:66px;
+  min-height:66px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:0 12px;
+  background:linear-gradient(180deg,#b30d09,#790806);
+  border-bottom:1px solid #d6241c;
+  font-family:"Arial Black",Impact,Arial,sans-serif;
+  font-size:27px;
+  font-weight:900;
+  letter-spacing:-.5px;
+  white-space:nowrap;
 }
 
+.title-icon{
+  width:35px;
+  height:35px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+}
+
+/* ===== ORDERS ===== */
 .orders{
-grid-auto-rows:70px;
-gap:7px;
+  flex:1;
+  padding:14px 14px 10px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  grid-auto-rows:minmax(72px,92px);
+  align-content:start;
+  gap:10px;
 }
 
-.number{
-font-size:25px;
+.order-num{
+  position:relative;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  min-width:0;
+  border-radius:5px;
+  background:linear-gradient(145deg,#262626,#111);
+  border:1px solid #343434;
+  font-family:"Arial Black",Impact,Arial,sans-serif;
+  font-size:31px;
+  font-weight:900;
+  color:#fff;
+  box-shadow:
+    inset 0 0 8px rgba(255,255,255,.02),
+    0 3px 7px rgba(0,0,0,.35);
 }
 
-.flame{
-width:55px;
-height:60px;
-font-size:11px;
+.ready .order-num{
+  background:linear-gradient(145deg,#242424,#101010);
+  border:1px solid #343434;
 }
 
+/* ===== NEW READY GREEN FLASH ===== */
+.ready .order-num.new-ready{
+  background:linear-gradient(145deg,#20d8ad,#067b65)!important;
+  border:1px solid #57ffda!important;
+  color:#fff;
+  box-shadow:
+    0 0 8px #37f5d0,
+    0 0 20px rgba(31,230,186,.8),
+    inset 0 0 12px rgba(255,255,255,.12)!important;
+  animation:greenFlash .58s ease-in-out 9;
+}
+
+@keyframes greenFlash{
+  0%,100%{
+    transform:scale(1);
+    filter:brightness(1);
+  }
+  50%{
+    transform:scale(1.07);
+    filter:brightness(1.35);
+  }
+}
+
+.ready .order-num.new-ready::before,
+.ready .order-num.new-ready::after{
+  content:"";
+  position:absolute;
+  width:10px;
+  height:2px;
+  top:50%;
+  background:#58ffda;
+  box-shadow:
+    0 -13px 0 #58ffda,
+    0 13px 0 #58ffda;
+}
+
+.ready .order-num.new-ready::before{left:-13px}
+.ready .order-num.new-ready::after{right:-13px}
+
+/* ===== FOOTER ===== */
+.panel-footer{
+  height:42px;
+  min-height:42px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:9px;
+  padding:0 10px;
+  font-size:13px;
+  font-weight:900;
+  letter-spacing:.15px;
+  white-space:nowrap;
+}
+
+.panel-footer::before,
+.panel-footer::after{
+  content:"";
+  height:1px;
+  background:#c91f18;
+  flex:1;
+  max-width:42px;
+}
+
+/* ===== CONTROL ===== */
+#control{
+  min-height:100vh;
+  overflow:auto;
+  background:#111;
+  padding:18px;
+}
+
+.controls{
+  max-width:820px;
+  margin:auto;
+}
+
+.card{
+  background:#1c1c1c;
+  padding:18px;
+  border-radius:16px;
+  margin-bottom:14px;
+}
+
+.card h2{
+  margin:0 0 15px;
+}
+
+input{
+  width:64%;
+  min-width:180px;
+  font-size:28px;
+  padding:13px;
+  border:0;
+  border-radius:9px;
+}
+
+button{
+  font-size:18px;
+  padding:12px 14px;
+  border:0;
+  border-radius:10px;
+  margin:4px;
+}
+
+.add{
+  background:#fff;
+  color:#111;
+}
+
+.readybtn{
+  background:#079a73;
+  color:#fff;
+}
+
+.done{
+  background:#555;
+  color:#fff;
+}
+
+.row{
+  padding:13px;
+  background:#282828;
+  margin:8px 0;
+  border-radius:10px;
+  font-size:19px;
+}
+
+@media(max-width:1200px){
+  .brand-main{font-size:48px}
+  .brand{min-width:520px}
+  .brand-logo{width:62px;height:62px}
+  .screen-center{width:70vw}
+
+  .panel-title{
+    font-size:22px;
+    height:58px;
+    min-height:58px;
+  }
+
+  .orders{
+    grid-auto-rows:minmax(64px,82px);
+    gap:8px;
+    padding:12px;
+  }
+
+  .order-num{font-size:27px}
+  .panel-footer{font-size:11px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- ===== TV DISPLAY ===== -->
 <div id="display" style="display:none">
 
-<div class="food burger"></div>
-<div class="food chicken"></div>
+  <div class="side-food food-left"></div>
+  <div class="side-food food-right"></div>
 
-<button id="soundBtn" onclick="enableSound()">
-🔊 Ton aktivieren
-</button>
+  <button
+    id="soundBtn"
+    class="soundbtn"
+    style="display:none"
+    onclick="enableSound()">
+    🔊 Ton aktivieren
+  </button>
 
-<div class="top">
+  <div class="topbar">
 
-<div class="logo">
+    <div class="brand">
 
-<div class="logo-title">
+      <div class="brand-main">
+        <span class="palmo">PALMO</span>
+        <span class="chicken-word">CHICKEN</span>
 
-<span class="palmo">PALMO</span>
+        <img
+          class="brand-logo"
+          src="PALMO_LOGO"
+          alt="PALMO">
+      </div>
 
-<span class="chicken-text">CHICKEN</span>
+      <div class="brand-sub-row">
+        <span class="brand-line"></span>
+        <span class="brand-sub">By Palmengrill</span>
+        <span class="brand-line"></span>
+      </div>
 
-<span class="flame">PALMO</span>
+    </div>
 
-</div>
+  </div>
 
-<div class="subtitle">
+  <div class="screen-center">
 
-<span class="line"></span>
+    <!-- IN ZUBEREITUNG -->
+    <section class="panel prep">
 
-<span>By Palmengrill</span>
+      <div class="panel-title">
+        <span class="title-icon">♨</span>
+        <span>IN ZUBEREITUNG</span>
+      </div>
 
-<span class="line"></span>
+      <div id="prep" class="orders"></div>
 
-</div>
+      <div class="panel-footer">
+        VIELEN DANK, DASS DU HIER BIST!
+      </div>
 
-</div>
+    </section>
 
-</div>
+    <!-- ABHOLBEREIT -->
+    <section class="panel ready">
 
+      <div class="panel-title">
+        <span class="title-icon">▣</span>
+        <span>ABHOLBEREIT</span>
+      </div>
 
-<div class="center">
+      <div id="ready" class="orders"></div>
 
-<!-- PREPARING -->
+      <div class="panel-footer">
+        GUTEN APPETIT
+      </div>
 
-<div class="panel prep">
+    </section>
 
-<div class="panel-title">
-<span class="icon">♨</span>
-<span>IN ZUBEREITUNG</span>
-</div>
-
-<div id="prep" class="orders"></div>
-
-<div class="footer">
-VIELEN DANK, DASS DU HIER BIST!
-</div>
-
-</div>
-
-
-<!-- READY -->
-
-<div class="panel ready">
-
-<div class="panel-title">
-<span class="icon">▣</span>
-<span>ABHOLBEREIT</span>
-</div>
-
-<div id="ready" class="orders"></div>
-
-<div class="footer">
-GUTEN APPETIT
-</div>
-
-</div>
-
-</div>
+  </div>
 
 </div>
 
 
-<!-- CONTROL -->
-
+<!-- ===== CONTROL ===== -->
 <div id="control" style="display:none">
 
-<div class="controls">
+  <div class="controls">
 
-<div class="card">
+    <div class="card">
 
-<h2>Neue Bestellnummer</h2>
+      <h2>Neue Bestellnummer</h2>
 
-<input
-id="n"
-inputmode="numeric"
-placeholder="z.B. 125">
+      <input
+        id="n"
+        inputmode="numeric"
+        placeholder="z.B. 125">
 
-<button
-class="add"
-onclick="addOrder()">
-Hinzufügen
-</button>
+      <button
+        class="add"
+        onclick="addOrder()">
+        Hinzufügen
+      </button>
+
+    </div>
+
+    <div class="card">
+
+      <h2>Aktuelle Bestellungen</h2>
+
+      <div id="list"></div>
+
+    </div>
+
+  </div>
 
 </div>
-
-<div class="card">
-
-<h2>Aktuelle Bestellungen</h2>
-
-<div id="list"></div>
-
-</div>
-
-</div>
-
-</div>
-
 
 <script>
 
@@ -471,31 +494,44 @@ var DB =
 
 function getParameter(name){
 
-var q =
-window.location.search.substring(1).split("&");
+  var query =
+  window.location.search.substring(1);
 
-for(var i=0;i<q.length;i++){
+  var vars =
+  query.split("&");
 
-var p=q[i].split("=");
+  for(var i=0;i<vars.length;i++){
 
-if(p[0]===name)
-return decodeURIComponent(p[1]||"");
+    var pair =
+    vars[i].split("=");
 
+    if(pair[0]===name){
+
+      return decodeURIComponent(
+        pair[1] || ""
+      );
+
+    }
+
+  }
+
+  return null;
 }
 
-return null;
-}
 
-
-/* TV DEFAULT */
+/* DISPLAY هو الافتراضي */
 
 var mode =
 getParameter("mode") || "display";
 
 
-document.getElementById(
-mode==="control" ? "control" : "display"
-).style.display="block";
+document
+.getElementById(
+  mode==="control"
+  ? "control"
+  : "display"
+)
+.style.display="block";
 
 
 /* ===== SOUND ===== */
@@ -507,87 +543,117 @@ var audioPlayer=null;
 var flashUntil={};
 
 
+if(mode==="display"){
+
+  document
+  .getElementById("soundBtn")
+  .style.display="inline-block";
+
+}
+
+
 function enableSound(){
 
-soundEnabled=true;
+  soundEnabled=true;
 
-document.getElementById("soundBtn").innerHTML=
-"🔊 Ton aktiv";
+  document
+  .getElementById("soundBtn")
+  .innerHTML="🔊 Ton aktiv";
 
-beep();
+  beep();
 
-setTimeout(function(){
-speak("Ton ist aktiviert");
-},500);
+  setTimeout(function(){
+
+    speak("Ton ist aktiviert");
+
+  },500);
 
 }
 
 
 function speak(text){
 
-if(!soundEnabled)return;
+  if(!soundEnabled)return;
 
-try{
+  try{
 
-var url=
-"https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=de&q="
-+encodeURIComponent(text);
+    var url =
+    "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=de&q="
+    + encodeURIComponent(text);
 
-audioPlayer=new Audio(url);
+    audioPlayer =
+    new Audio(url);
 
-audioPlayer.volume=1;
+    audioPlayer.volume=1;
 
-var p=audioPlayer.play();
+    var p =
+    audioPlayer.play();
 
-if(p&&p.catch){
-p.catch(function(){beep();});
-}
+    if(p && p.catch){
 
-audioPlayer.onerror=function(){
-beep();
-};
+      p.catch(function(){
+        beep();
+      });
 
-}catch(e){
-beep();
-}
+    }
+
+    audioPlayer.onerror=function(){
+      beep();
+    };
+
+  }
+  catch(e){
+
+    beep();
+
+  }
 
 }
 
 
 function beep(){
 
-try{
+  try{
 
-var AC=
-window.AudioContext||
-window.webkitAudioContext;
+    var AC =
+    window.AudioContext ||
+    window.webkitAudioContext;
 
-if(!AC)return;
+    if(!AC)return;
 
-var ctx=new AC();
+    var ctx =
+    new AC();
 
-var osc=ctx.createOscillator();
+    var osc =
+    ctx.createOscillator();
 
-var gain=ctx.createGain();
+    var gain =
+    ctx.createGain();
 
-osc.connect(gain);
-gain.connect(ctx.destination);
+    osc.connect(gain);
 
-osc.frequency.value=880;
-gain.gain.value=.5;
+    gain.connect(
+      ctx.destination
+    );
 
-osc.start();
+    osc.frequency.value=880;
 
-setTimeout(function(){
+    gain.gain.value=0.5;
 
-try{
-osc.stop();
-ctx.close();
-}catch(e){}
+    osc.start();
 
-},500);
+    setTimeout(function(){
 
-}catch(e){}
+      try{
+        osc.stop();
+        ctx.close();
+      }
+      catch(e){}
+
+    },500);
+
+  }
+  catch(e){}
 
 }
 
@@ -596,131 +662,140 @@ ctx.close();
 
 function req(method,path,data,cb){
 
-var x=new XMLHttpRequest();
+  var x =
+  new XMLHttpRequest();
 
-x.open(
-method,
-DB+path+".json",
-true
-);
+  x.open(
+    method,
+    DB + path + ".json",
+    true
+  );
 
-x.setRequestHeader(
-"Content-Type",
-"application/json"
-);
+  x.setRequestHeader(
+    "Content-Type",
+    "application/json"
+  );
 
-x.onreadystatechange=function(){
+  x.onreadystatechange=function(){
 
-if(x.readyState===4&&cb){
+    if(x.readyState===4 && cb){
 
-var r=null;
+      var r=null;
 
-try{
-r=JSON.parse(x.responseText);
-}catch(e){}
+      try{
 
-cb(r);
+        r =
+        JSON.parse(
+          x.responseText
+        );
+
+      }
+      catch(e){}
+
+      cb(r);
+
+    }
+
+  };
+
+  x.send(
+    data===null ||
+    data===undefined
+    ? null
+    : JSON.stringify(data)
+  );
 
 }
 
-};
 
-x.send(
-data===null||data===undefined
-?null
-:JSON.stringify(data)
-);
-
-}
-
-
-/* ===== ADD ===== */
+/* ===== ADD ORDER ===== */
 
 function addOrder(){
 
-var input=
-document.getElementById("n");
+  var input =
+  document.getElementById("n");
 
-var n=
-input.value.replace(/\D/g,"");
+  var n =
+  input.value.replace(/\D/g,"");
 
-if(!n)return;
+  if(!n)return;
 
-req(
-"GET",
-"/orders",
-null,
-function(data){
+  req(
+    "GET",
+    "/orders",
+    null,
+    function(data){
 
-data=data||{};
+      data=data||{};
 
-var duplicate=false;
+      var duplicate=false;
 
-Object.keys(data).forEach(function(k){
+      Object.keys(data)
+      .forEach(function(k){
 
-if(
-String(data[k].number)===
-String(n)
-){
-duplicate=true;
-}
+        if(
+          String(data[k].number)
+          ===
+          String(n)
+        ){
+          duplicate=true;
+        }
 
-});
+      });
 
-if(duplicate){
+      if(duplicate){
 
-alert(
-"Nummer "+n+
-" ist bereits vorhanden."
-);
+        alert(
+          "Nummer "
+          + n +
+          " ist bereits vorhanden."
+        );
 
-return;
+        return;
 
-}
+      }
 
-req(
-"POST",
-"/orders",
-{
-number:n,
-status:"preparing",
-createdAt:Date.now()
-},
-function(){
-input.value="";
-}
-);
+      req(
+        "POST",
+        "/orders",
+        {
+          number:n,
+          status:"preparing",
+          createdAt:Date.now()
+        },
+        function(){
 
-}
-);
+          input.value="";
 
-}
+        }
+      );
 
-
-/* ===== READY ===== */
-
-function setReady(k){
-
-req(
-"PATCH",
-"/orders/"+k,
-{
-status:"ready",
-readyAt:Date.now()
-}
-);
+    }
+  );
 
 }
+  function setReady(k){
+
+  req(
+    "PATCH",
+    "/orders/" + k,
+    {
+      status:"ready",
+      readyAt:Date.now()
+    }
+  );
+
+}
 
 
-/* ===== REMOVE ===== */
+/* ===== REMOVE ORDER ===== */
 
 function removeOrder(k){
 
-req(
-"DELETE",
-"/orders/"+k
-);
+  req(
+    "DELETE",
+    "/orders/" + k
+  );
 
 }
 
@@ -729,142 +804,227 @@ req(
 
 function render(data){
 
-data=data||{};
+  data=data||{};
 
-var prep="";
-var ready="";
-var list="";
+  var prep="";
+  var ready="";
+  var list="";
 
-var currentReady={};
+  var currentReady={};
 
-var now=Date.now();
+  var now=Date.now();
 
-var keys=Object.keys(data);
-
-keys.sort(function(a,b){
-
-return
-(data[a].createdAt||0)
--
-(data[b].createdAt||0);
-
-});
+  var keys=Object.keys(data);
 
 
-keys.forEach(function(k){
+  /* ترتيب الأرقام حسب وقت الإضافة */
 
-var o=data[k];
+  keys.sort(function(a,b){
 
-var number=String(o.number);
+    var aa =
+    data[a].createdAt || 0;
+
+    var bb =
+    data[b].createdAt || 0;
+
+    return aa-bb;
+
+  });
 
 
-if(o.status==="ready"){
+  keys.forEach(function(k){
 
-currentReady[k]=true;
+    var o=data[k];
+
+    var number=
+    String(o.number);
 
 
-/* NEW READY */
+    /* ===== READY ===== */
 
-if(
-mode==="display" &&
-!firstLoad &&
-!previousReady[k]
-){
+    if(o.status==="ready"){
 
-flashUntil[k]=now+5200;
+      currentReady[k]=true;
 
-speak(
-"Nummer "+number+", bitte!"
-);
+
+      /* إذا تحول الرقم للتو إلى جاهز */
+
+      if(
+        mode==="display" &&
+        !firstLoad &&
+        !previousReady[k]
+      ){
+
+        /* وميض أخضر لمدة 5.2 ثانية */
+
+        flashUntil[k] =
+        now + 5200;
+
+
+        /* نطق الرقم بالألماني */
+
+        speak(
+          "Nummer "
+          + number +
+          ", bitte!"
+        );
+
+      }
+
+
+      var isNew =
+      flashUntil[k] &&
+      flashUntil[k] > now;
+
+
+      /* رقم جاهز */
+
+      ready +=
+
+      '<div class="order-num' +
+
+      (
+        isNew
+        ? ' new-ready'
+        : ''
+      )
+
+      + '">' +
+
+      number +
+
+      '</div>';
+
+
+      /* لوحة التحكم */
+
+      list +=
+
+      '<div class="row">' +
+
+      '<b>' +
+      number +
+      '</b> ABHOLBEREIT ' +
+
+      '<button class="done" onclick="removeOrder(\'' +
+      k +
+      '\')">' +
+
+      'Abgeholt' +
+
+      '</button>' +
+
+      '</div>';
+
+    }
+
+
+    /* ===== PREPARING ===== */
+
+    else{
+
+      prep +=
+
+      '<div class="order-num">' +
+
+      number +
+
+      '</div>';
+
+
+      /* لوحة التحكم */
+
+      list +=
+
+      '<div class="row">' +
+
+      '<b>' +
+      number +
+      '</b> IN ZUBEREITUNG ' +
+
+      '<button class="readybtn" onclick="setReady(\'' +
+      k +
+      '\')">' +
+
+      'Fertig' +
+
+      '</button>' +
+
+      '</div>';
+
+    }
+
+  });
+
+
+  /* حفظ الأرقام الجاهزة الحالية */
+
+  previousReady =
+  currentReady;
+
+
+  firstLoad=false;
+
+
+  /* ===== TV DISPLAY ===== */
+
+  if(mode==="display"){
+
+    document
+    .getElementById("prep")
+    .innerHTML =
+    prep || "";
+
+
+    document
+    .getElementById("ready")
+    .innerHTML =
+    ready || "";
+
+  }
+
+
+  /* ===== CONTROL PANEL ===== */
+
+  else{
+
+    document
+    .getElementById("list")
+    .innerHTML =
+
+    list ||
+
+    "Keine Bestellungen";
+
+  }
 
 }
 
 
-var flash=
-flashUntil[k] &&
-flashUntil[k]>now;
-
-
-ready+=
-'<div class="number'+
-(flash?' new-ready':'')+
-'">'+
-number+
-'</div>';
-
-
-list+=
-'<div class="row"><b>'+
-number+
-'</b> ABHOLBEREIT '+
-'<button class="done" onclick="removeOrder(\''+
-k+
-'\')">Abgeholt</button></div>';
-
-}
-
-else{
-
-prep+=
-'<div class="number">'+
-number+
-'</div>';
-
-
-list+=
-'<div class="row"><b>'+
-number+
-'</b> IN ZUBEREITUNG '+
-'<button class="readybtn" onclick="setReady(\''+
-k+
-'\')">Fertig</button></div>';
-
-}
-
-});
-
-
-previousReady=currentReady;
-
-firstLoad=false;
-
-
-if(mode==="display"){
-
-document.getElementById("prep").innerHTML=prep;
-
-document.getElementById("ready").innerHTML=ready;
-
-}
-
-else{
-
-document.getElementById("list").innerHTML=
-list||"Keine Bestellungen";
-
-}
-
-}
-
-
-/* ===== LIVE UPDATE ===== */
+/* ===== LIVE FIREBASE UPDATE ===== */
 
 function poll(){
 
-req(
-"GET",
-"/orders",
-null,
-function(d){
+  req(
+    "GET",
+    "/orders",
+    null,
+    function(d){
 
-render(d);
+      render(d);
 
-setTimeout(poll,1000);
+      setTimeout(
+        poll,
+        1000
+      );
+
+    }
+  );
 
 }
-);
 
-}
+
+/* START */
 
 poll();
 
