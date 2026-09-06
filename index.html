@@ -8,200 +8,293 @@
 <style>
 *{box-sizing:border-box}
 
-body{
+html,body{
 margin:0;
-font-family:Arial,sans-serif;
-background:#080808;
-color:white;
-overflow-x:hidden;
+width:100%;
+height:100%;
+background:#070707;
+font-family:Arial Black,Arial,sans-serif;
+color:#fff;
 }
+
+body{overflow:hidden}
+
+/* ===== TOP LOGO ===== */
 
 header{
-height:14vh;
-min-height:105px;
+height:15vh;
+min-height:100px;
+background:linear-gradient(180deg,#070707,#111);
 display:flex;
-align-items:center;
 justify-content:center;
+align-items:center;
 position:relative;
-background:#050505;
-border-bottom:3px solid #b40000;
+border-bottom:2px solid #e00000;
 }
 
-.brand{
-text-align:center;
-font-weight:bold;
+.brandWrap{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logoFlame{
+width:55px;
+height:64px;
+filter:drop-shadow(0 0 10px #d40000);
+}
+
+.brandText{
+text-align:left;
 line-height:.9;
 }
 
-.brand-main{
+.brandMain{
 font-size:54px;
-letter-spacing:2px;
+font-weight:900;
+letter-spacing:1px;
+text-shadow:0 3px 8px #000;
+white-space:nowrap;
 }
 
-.brand-main .palmo{color:white}
-.brand-main .chicken{color:#e11111}
+.brandMain .palmo{color:#fff}
+.brandMain .chicken{color:#ed1717}
 
-.brand-sub{
-font-size:23px;
-margin-top:12px;
-color:#22a447;
+.brandSub{
+margin-top:13px;
+font-size:20px;
+color:#28b856;
+font-family:Arial,sans-serif;
+font-weight:bold;
+text-align:center;
 }
 
 .soundbtn{
 position:absolute;
 right:20px;
-top:20px;
-background:white;
+top:22px;
+background:#fff;
 color:#111;
 font-weight:bold;
 border:0;
 border-radius:10px;
 padding:11px 15px;
-font-size:16px;
+font-size:15px;
 }
 
-/* DISPLAY */
+/* ===== DISPLAY ===== */
 
 #display{
-min-height:86vh;
+height:85vh;
 position:relative;
+background:
+radial-gradient(circle at center,#202020 0%,#090909 75%);
 }
 
-.food-left,
-.food-right{
+/* FOOD SIDES */
+
+.food{
 position:absolute;
 top:0;
 bottom:0;
-width:20%;
+width:23%;
+background-repeat:no-repeat;
 background-size:cover;
-background-position:center;
-opacity:.95;
+z-index:1;
 }
 
-.food-left{
+.foodLeft{
 left:0;
 background-image:
-linear-gradient(to right,rgba(0,0,0,.1),rgba(0,0,0,.85)),
-url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=900&q=85');
+linear-gradient(to right,
+rgba(0,0,0,.05) 0%,
+rgba(0,0,0,.05) 45%,
+rgba(0,0,0,.9) 100%),
+url("https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=90");
+background-position:center;
 }
 
-.food-right{
+.foodRight{
 right:0;
 background-image:
-linear-gradient(to left,rgba(0,0,0,.1),rgba(0,0,0,.85)),
-url('https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=900&q=85');
+linear-gradient(to left,
+rgba(0,0,0,.05) 0%,
+rgba(0,0,0,.05) 45%,
+rgba(0,0,0,.9) 100%),
+url("https://images.unsplash.com/photo-1613315981117-141e49472cfd?auto=format&fit=crop&w=1200&q=90");
+background-position:center;
 }
+
+/* PANELS */
 
 .grid{
 position:relative;
-z-index:2;
-display:flex;
-width:72%;
+z-index:5;
+width:70%;
+height:100%;
 margin:auto;
-padding-top:20px;
+display:flex;
 gap:14px;
-min-height:81vh;
+padding:16px 0;
 }
 
 .box{
 width:50%;
-background:rgba(20,20,20,.96);
-border:2px solid #9c0000;
-border-radius:16px;
+height:100%;
+background:rgba(19,20,23,.96);
+border:3px solid #a90000;
+border-radius:17px;
 overflow:hidden;
 display:flex;
 flex-direction:column;
+box-shadow:
+0 0 10px rgba(255,0,0,.35),
+inset 0 0 30px rgba(0,0,0,.5);
 }
 
 .box h2{
 margin:0;
-padding:18px 10px;
-font-size:30px;
+padding:18px 8px;
 text-align:center;
-background:linear-gradient(#d11313,#8d0000);
+font-size:29px;
+font-weight:900;
+letter-spacing:.5px;
+background:
+linear-gradient(180deg,#f01a1a,#a60000);
+text-shadow:0 2px 5px #650000;
+border-bottom:2px solid #ff3838;
 }
 
 .orders{
-padding:18px;
+padding:22px;
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:14px;
+gap:18px;
 align-content:start;
 flex:1;
 }
 
+/* NORMAL PREPARING NUMBER */
+
 .num{
-font-size:60px;
-font-weight:bold;
-text-align:center;
-background:#292929;
-border-radius:14px;
-padding:24px 8px;
-border:2px solid #444;
+min-height:105px;
+border-radius:15px;
+display:flex;
+align-items:center;
+justify-content:center;
 position:relative;
+font-size:55px;
+font-weight:900;
+background:linear-gradient(145deg,#333,#1c1c1c);
+border:2px solid #484848;
+box-shadow:0 7px 15px rgba(0,0,0,.5);
 }
+
+/* READY NUMBER AFTER FLASH */
 
 .ready .num{
-background:#123a22;
-border-color:#237d45;
+background:
+linear-gradient(145deg,#076e52,#084b3d);
+border:2px solid #18bf8a;
+box-shadow:
+0 0 10px rgba(18,211,153,.35),
+inset 0 0 16px rgba(30,255,190,.12);
 }
 
-.new-ready{
-background:#d00000!important;
-border:3px solid #ff3131!important;
-box-shadow:0 0 15px #ff1d1d,0 0 35px #ff0000;
-animation:flash .62s ease-in-out 8;
+/* NEW READY — TURQUOISE FLASH */
+
+.ready .num.new-ready{
+background:
+linear-gradient(145deg,#22d9ae,#079b82)!important;
+border:3px solid #4effd7!important;
+box-shadow:
+0 0 12px #2affd5,
+0 0 30px #13cfae,
+0 0 55px rgba(30,255,215,.75)!important;
+animation:readyFlash .60s ease-in-out 8;
+transform-origin:center;
 }
 
-.new-ready:before{
-content:"PALMO";
-display:block;
-font-size:13px;
+@keyframes readyFlash{
+0%,100%{
+transform:scale(1);
+filter:brightness(1);
+}
+50%{
+transform:scale(1.08);
+filter:brightness(1.35);
+}
+}
+
+.miniLogo{
+position:absolute;
+top:5px;
+left:7px;
+display:flex;
+align-items:center;
+gap:3px;
+font-family:Arial,sans-serif;
+font-size:9px;
 font-weight:bold;
-letter-spacing:1px;
-margin-bottom:3px;
-color:white;
+color:#fff;
+opacity:.98;
 }
 
-@keyframes flash{
-0%,100%{transform:scale(1);box-shadow:0 0 12px #e00000}
-50%{transform:scale(1.07);box-shadow:0 0 35px #ff0000}
+.miniLogo svg{
+width:17px;
+height:20px;
 }
+
+.numText{
+display:block;
+}
+
+/* FOOTERS */
 
 .footerText{
-padding:15px 6px 18px;
+height:52px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-family:Arial,sans-serif;
+font-weight:900;
+font-size:17px;
+letter-spacing:.5px;
 text-align:center;
-font-weight:bold;
-font-size:19px;
-letter-spacing:1px;
-color:#eee;
 }
 
-/* CONTROL */
+/* ===== CONTROL ===== */
+
+#control{
+height:85vh;
+overflow:auto;
+}
 
 .controls{
 max-width:850px;
-margin:25px auto;
+margin:20px auto;
 padding:10px;
+font-family:Arial,sans-serif;
 }
 
 .card{
 background:#191919;
 padding:18px;
 border-radius:16px;
-margin-bottom:14px;
+margin-bottom:15px;
+border:1px solid #333;
 }
 
 .card h2{
-margin-top:0;
+margin:0 0 15px;
 }
 
 input{
 font-size:27px;
 padding:13px;
-width:62%;
-border-radius:8px;
+width:64%;
 border:0;
+border-radius:9px;
 }
 
 button{
@@ -212,37 +305,102 @@ border-radius:10px;
 margin:4px;
 }
 
-.add{background:white}
-.readybtn{background:#168346;color:white}
-.done{background:#555;color:white}
+.add{
+background:#fff;
+color:#111;
+}
+
+.readybtn{
+background:#0aa776;
+color:#fff;
+}
+
+.done{
+background:#555;
+color:#fff;
+}
 
 .row{
 padding:13px;
 background:#252525;
 margin:8px 0;
 border-radius:10px;
-font-size:20px;
+font-size:19px;
 }
 
-@media(max-width:900px){
-.food-left,.food-right{width:16%}
-.grid{width:80%}
-.brand-main{font-size:40px}
-.num{font-size:44px}
-.orders{grid-template-columns:repeat(2,1fr)}
+/* TV SMALLER RESOLUTION */
+
+@media(max-width:1100px){
+
+.brandMain{font-size:43px}
+.logoFlame{width:46px;height:54px}
+
+.grid{width:72%}
+
+.box h2{font-size:24px}
+
+.orders{
+grid-template-columns:repeat(2,1fr);
+padding:17px;
+gap:13px;
 }
+
+.num{
+font-size:47px;
+min-height:93px;
+}
+
+.food{width:24%}
+
+.footerText{font-size:14px}
+}
+
 </style>
 </head>
 
 <body>
 
 <header>
-<div class="brand">
-<div class="brand-main">
+
+<div class="brandWrap">
+
+<svg class="logoFlame"
+viewBox="0 0 100 120"
+xmlns="http://www.w3.org/2000/svg">
+
+<path
+d="M52 3
+C56 27 83 29 83 60
+C83 91 64 111 49 116
+C22 109 8 92 8 68
+C8 47 21 36 31 23
+C31 40 38 45 44 45
+C51 45 56 35 52 3Z"
+fill="#df1515"/>
+
+<path
+d="M52 46
+C58 60 70 65 70 79
+C70 96 59 106 49 110
+C36 105 29 94 29 82
+C29 70 38 62 42 53
+C43 65 48 68 52 68
+C57 68 59 60 52 46Z"
+fill="#fff"/>
+
+</svg>
+
+<div class="brandText">
+<div class="brandMain">
 <span class="palmo">PALMO</span>
 <span class="chicken"> CHICKEN</span>
 </div>
-<div class="brand-sub">By palmen grill</div>
+
+<div class="brandSub">
+By palmen grill
+</div>
+</div>
+
 </div>
 
 <button
@@ -252,39 +410,52 @@ style="display:none"
 onclick="enableSound()">
 🔊 Ton aktivieren
 </button>
+
 </header>
 
 
 <div id="display" style="display:none">
 
-<div class="food-left"></div>
-<div class="food-right"></div>
+<div class="food foodLeft"></div>
+<div class="food foodRight"></div>
 
 <div class="grid">
 
 <div class="box prep">
+
 <h2>IN ZUBEREITUNG</h2>
+
 <div id="prep" class="orders"></div>
+
 <div class="footerText">
 DANKE, DASS DU HIER BIST!
 </div>
+
 </div>
 
+
 <div class="box ready">
+
 <h2>ABHOLBEREIT</h2>
+
 <div id="ready" class="orders"></div>
+
 <div class="footerText">
 GUTEN APPETIT!
 </div>
+
 </div>
 
 </div>
 </div>
 
 
-<div id="control" class="controls" style="display:none">
+<div id="control"
+class="controls"
+style="display:none">
 
 <div class="card">
+
 <h2>Neue Bestellnummer</h2>
 
 <input
@@ -292,15 +463,21 @@ id="n"
 inputmode="numeric"
 placeholder="z.B. 125">
 
-<button class="add" onclick="addOrder()">
+<button
+class="add"
+onclick="addOrder()">
 Hinzufügen
 </button>
+
 </div>
 
 
 <div class="card">
+
 <h2>Aktuelle Bestellungen</h2>
+
 <div id="list"></div>
+
 </div>
 
 </div>
@@ -311,20 +488,40 @@ Hinzufügen
 var DB=
 "https://palmen-grill-monitor-default-rtdb.europe-west1.firebasedatabase.app";
 
+
 function getParameter(name){
-var q=window.location.search.substring(1).split("&");
+
+var q=
+window.location.search
+.substring(1)
+.split("&");
+
 for(var i=0;i<q.length;i++){
+
 var p=q[i].split("=");
-if(p[0]===name)return decodeURIComponent(p[1]||"");
+
+if(p[0]===name){
+return decodeURIComponent(p[1]||"");
 }
+
+}
+
 return null;
 }
 
-var mode=getParameter("mode")||"display";
 
-document.getElementById(
-mode==="control" ? "control" : "display"
-).style.display="block";
+var mode=
+getParameter("mode")||
+"display";
+
+
+document
+.getElementById(
+mode==="control"
+?"control"
+:"display"
+)
+.style.display="block";
 
 
 var soundEnabled=false;
@@ -333,44 +530,91 @@ var firstLoad=true;
 var audioPlayer=null;
 var flashUntil={};
 
+
 if(mode==="display"){
-document.getElementById("soundBtn").style.display="inline-block";
+
+document
+.getElementById("soundBtn")
+.style.display="inline-block";
+
 }
+
 
 function enableSound(){
+
 soundEnabled=true;
-document.getElementById("soundBtn").innerHTML="🔊 Ton aktiv";
+
+document
+.getElementById("soundBtn")
+.innerHTML="🔊 Ton aktiv";
+
 beep();
-setTimeout(function(){speak("Ton ist aktiviert")},500);
+
+setTimeout(function(){
+
+speak("Ton ist aktiviert");
+
+},500);
+
 }
 
+
 function speak(text){
+
 if(!soundEnabled)return;
 
 try{
+
 var url=
 "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&tl=de&q="
 +encodeURIComponent(text);
 
-audioPlayer=new Audio(url);
+audioPlayer=
+new Audio(url);
+
 audioPlayer.volume=1;
 
-var p=audioPlayer.play();
-if(p&&p.catch)p.catch(function(){beep()});
+var p=
+audioPlayer.play();
 
-audioPlayer.onerror=function(){beep()};
+if(p&&p.catch){
 
-}catch(e){beep()}
+p.catch(function(){
+beep();
+});
+
 }
 
+audioPlayer.onerror=function(){
+beep();
+};
+
+}catch(e){
+
+beep();
+
+}
+
+}
+
+
 function beep(){
+
 try{
-var AC=window.AudioContext||window.webkitAudioContext;
+
+var AC=
+window.AudioContext||
+window.webkitAudioContext;
+
 if(!AC)return;
 
 var ctx=new AC();
-var osc=ctx.createOscillator();
-var gain=ctx.createGain();
+
+var osc=
+ctx.createOscillator();
+
+var gain=
+ctx.createGain();
 
 osc.connect(gain);
 gain.connect(ctx.destination);
@@ -381,21 +625,29 @@ gain.gain.value=.5;
 osc.start();
 
 setTimeout(function(){
+
 try{
 osc.stop();
 ctx.close();
 }catch(e){}
+
 },500);
 
 }catch(e){}
+
 }
 
 
 function req(method,path,data,cb){
 
-var x=new XMLHttpRequest();
+var x=
+new XMLHttpRequest();
 
-x.open(method,DB+path+".json",true);
+x.open(
+method,
+DB+path+".json",
+true
+);
 
 x.setRequestHeader(
 "Content-Type",
@@ -419,7 +671,8 @@ cb(r);
 };
 
 x.send(
-data===null||data===undefined
+data===null||
+data===undefined
 ?null
 :JSON.stringify(data)
 );
@@ -429,28 +682,52 @@ data===null||data===undefined
 
 function addOrder(){
 
-var input=document.getElementById("n");
-var n=input.value.replace(/\D/g,"");
+var input=
+document.getElementById("n");
+
+var n=
+input.value.replace(/\D/g,"");
 
 if(!n)return;
 
-req("GET","/orders",null,function(data){
+
+req(
+"GET",
+"/orders",
+null,
+function(data){
 
 data=data||{};
+
 var duplicate=false;
 
-Object.keys(data).forEach(function(k){
 
-if(String(data[k].number)===String(n)){
+Object.keys(data)
+.forEach(function(k){
+
+if(
+String(data[k].number)===
+String(n)
+){
+
 duplicate=true;
+
 }
 
 });
 
+
 if(duplicate){
-alert("Nummer "+n+" ist bereits vorhanden.");
+
+alert(
+"Nummer "+n+
+" ist bereits vorhanden."
+);
+
 return;
+
 }
+
 
 req(
 "POST",
@@ -461,11 +738,14 @@ status:"preparing",
 createdAt:Date.now()
 },
 function(){
+
 input.value="";
+
 }
 );
 
-});
+}
+);
 
 }
 
@@ -485,7 +765,53 @@ readyAt:Date.now()
 
 
 function removeOrder(k){
-req("DELETE","/orders/"+k);
+
+req(
+"DELETE",
+"/orders/"+k
+);
+
+}
+
+
+/* SMALL PALMO LOGO INSIDE NEW READY NUMBER */
+
+function miniLogo(){
+
+return `
+<span class="miniLogo">
+
+<svg
+viewBox="0 0 100 120"
+xmlns="http://www.w3.org/2000/svg">
+
+<path
+d="M52 3
+C56 27 83 29 83 60
+C83 91 64 111 49 116
+C22 109 8 92 8 68
+C8 47 21 36 31 23
+C31 40 38 45 44 45
+C51 45 56 35 52 3Z"
+fill="#df1515"/>
+
+<path
+d="M52 46
+C58 60 70 65 70 79
+C70 96 59 106 49 110
+C36 105 29 94 29 82
+C29 70 38 62 42 53
+C43 65 48 68 52 68
+C57 68 59 60 52 46Z"
+fill="#fff"/>
+
+</svg>
+
+PALMO
+
+</span>
+`;
+
 }
 
 
@@ -496,75 +822,134 @@ data=data||{};
 var prep="";
 var ready="";
 var list="";
-var currentReady={};
-var now=Date.now();
 
-Object.keys(data).forEach(function(k){
+var currentReady={};
+
+var now=
+Date.now();
+
+
+Object.keys(data)
+.forEach(function(k){
 
 var o=data[k];
+
 
 if(o.status==="ready"){
 
 currentReady[k]=true;
+
 
 if(
 mode==="display" &&
 !firstLoad &&
 !previousReady[k]
 ){
-flashUntil[k]=now+5000;
-speak("Nummer "+o.number+", bitte!");
+
+flashUntil[k]=
+now+5000;
+
+speak(
+"Nummer "+
+o.number+
+", bitte!"
+);
+
 }
 
-var flash=
-flashUntil[k]&&flashUntil[k]>now
-?" new-ready"
-:"";
+
+var isFlashing=
+flashUntil[k] &&
+flashUntil[k]>now;
+
 
 ready+=
-'<div class="num'+flash+'">'+
+'<div class="num'+
+(isFlashing?' new-ready':'')+
+'">'+
+
+(isFlashing
+?miniLogo()
+:'')+
+
+'<span class="numText">'+
 o.number+
+'</span>'+
 '</div>';
+
 
 list+=
 '<div class="row">'+
-'<b>'+o.number+'</b> ABHOLBEREIT '+
-'<button class="done" onclick="removeOrder(\''+
+
+'<b>'+
+o.number+
+'</b> ABHOLBEREIT '+
+
+'<button class="done" '+
+'onclick="removeOrder(\''+
 k+
-'\')">Abgeholt</button>'+
+'\')">'+
+'Abgeholt'+
+'</button>'+
+
 '</div>';
+
 
 }else{
 
+
 prep+=
 '<div class="num">'+
+'<span class="numText">'+
 o.number+
+'</span>'+
 '</div>';
+
 
 list+=
 '<div class="row">'+
-'<b>'+o.number+'</b> IN ZUBEREITUNG '+
-'<button class="readybtn" onclick="setReady(\''+
+
+'<b>'+
+o.number+
+'</b> IN ZUBEREITUNG '+
+
+'<button class="readybtn" '+
+'onclick="setReady(\''+
 k+
-'\')">Fertig</button>'+
+'\')">'+
+'Fertig'+
+'</button>'+
+
 '</div>';
 
 }
 
 });
 
-previousReady=currentReady;
+
+previousReady=
+currentReady;
+
 firstLoad=false;
+
 
 if(mode==="display"){
 
-document.getElementById("prep").innerHTML=prep;
-document.getElementById("ready").innerHTML=ready;
+document
+.getElementById("prep")
+.innerHTML=prep;
+
+document
+.getElementById("ready")
+.innerHTML=ready;
 
 }else{
 
-document.getElementById("list").innerHTML=
-list||"Keine Bestellungen";
+document
+.getElementById("list")
+.innerHTML=
+list||
+"Keine Bestellungen";
 
 }
 
@@ -581,12 +966,16 @@ function(d){
 
 render(d);
 
-setTimeout(poll,1000);
+setTimeout(
+poll,
+1000
+);
 
 }
 );
 
 }
+
 
 poll();
 
